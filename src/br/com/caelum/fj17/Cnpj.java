@@ -55,6 +55,10 @@ public class Cnpj {
 		return this.valor.equals(outroCpnj.getValor());
 	}
 	
+	@Override
+	public String toString() {
+		return this.getValor();
+	}
 	
 
 }

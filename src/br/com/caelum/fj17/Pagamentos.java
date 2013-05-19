@@ -2,14 +2,16 @@ package br.com.caelum.fj17;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Iterator;
 
-public class Pagamentos {
+public class Pagamentos implements Iterable<Pagamento>{
 
 	private double valorPago;
 	
-	private ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
+	private Collection<Pagamento> pagamentos = new ArrayList<Pagamento>();
 
-	public ArrayList<Pagamento> getPagamentos() {
+	public Collection<Pagamento> getPagamentos() {
 		return pagamentos;
 	}
 
@@ -34,9 +36,9 @@ public class Pagamentos {
 		this.pagamentos.add(pagamento);
 	}
 
-	public ArrayList<Pagamento> pagamentosAntesDe(Calendar data) {
-		ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-		for (Pagamento pagamento : this.pagamentos) {
+	public Collection<Pagamento> pagamentosAntesDe(Calendar data) {
+		Collection<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+		for (Pagamento pagamento : this) {
 			if (pagamento.getData().before(data)) {
 				pagamentosFiltrados.add(pagamento);
 			}
@@ -44,9 +46,9 @@ public class Pagamentos {
 		return pagamentosFiltrados;
 	}
 
-	public ArrayList<Pagamento> pagamentosComValorMaiorQue(double valorMinimo) {
-		ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-		for (Pagamento pagamento : this.pagamentos) {
+	public Collection<Pagamento> pagamentosComValorMaiorQue(double valorMinimo) {
+		Collection<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+		for (Pagamento pagamento : this) {
 			if (pagamento.getValor() > valorMinimo) {
 				pagamentosFiltrados.add(pagamento);
 			}
@@ -54,13 +56,18 @@ public class Pagamentos {
 		return pagamentosFiltrados;
 	}
 
-	public ArrayList<Pagamento> pagamentosDo(String cnpjPagador) {
-		ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
-		for (Pagamento pagamento : this.pagamentos) {
+	public Collection<Pagamento> pagamentosDo(String cnpjPagador) {
+		Collection<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+		for (Pagamento pagamento : this) {
 			if (pagamento.getCnpjPagador().equals(cnpjPagador)) {
 				pagamentosFiltrados.add(pagamento);
 			}
 		}
 		return pagamentosFiltrados;
+	}
+
+	@Override
+	public Iterator<Pagamento> iterator() {
+		return pagamentos.iterator();
 	}
 }
