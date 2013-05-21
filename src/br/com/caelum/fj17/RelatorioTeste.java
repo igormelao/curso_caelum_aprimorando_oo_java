@@ -7,12 +7,12 @@ import java.util.Locale;
 public class RelatorioTeste {
 	public static void main(String[] args) {
 		Divida divida = new Divida();
-		divida.setCnpjCredor(new Cnpj("00.000.0002/002"));
+		divida.setDocumentoCredor(new Cnpj("00.000.0002/002"));
 		divida.setCredor("empresa");
 		divida.setTotal(200);
 		
 		Pagamento pagamento1 = new Pagamento();
-		pagamento1.setCnpjPagador("");
+		pagamento1.setDocumentoPagador("");
 		pagamento1.setData(Calendar.getInstance());
 		pagamento1.setPagador("Empresa");
 		pagamento1.setValor(200);

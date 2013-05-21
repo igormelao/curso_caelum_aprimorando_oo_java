@@ -1,6 +1,6 @@
 package br.com.caelum.fj17;
 
-public class Cnpj {
+public class Cnpj implements Documento{
 	private String valor;
 	
 	public Cnpj(String valor){

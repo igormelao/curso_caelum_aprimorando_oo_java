@@ -11,7 +11,7 @@ public class RelatorioDeDivida {
 	}
 	public void gerarRelatorio(NumberFormat formatador){
 		System.out.println("Nome do Credor: " + divida.getCredor());
-		System.out.println("CNPJ do Credor: " + divida.getCnpjCredor());
+		System.out.println("CNPJ do Credor: " + divida.getDocumentoCredor());
 		System.out.println("Valor a pagar: " + formatador.format(divida.getValorAPagar()));
 		System.out.println("Valor Total: " + formatador.format(divida.getTotal()));
 	}
