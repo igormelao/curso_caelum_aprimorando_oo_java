@@ -19,7 +19,6 @@ public class Pagamentos implements Iterable<Pagamento>{
 		return this.valorPago;
 	}
 	
-	
 	public void paga(Pagamento pagamento){
 		double valor = pagamento.getValor();
 		if (valor < 0) {
